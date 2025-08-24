@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block title %}
+    <title>trainee list </title>
+    {% endblock %}
+    {% block content %}
+    <h1>all trainees</h1>
+    <ul>
+        {% for trainee in trainees %}
+            <li>{{ trainee.1 }}</li>
+        {% endfor %}
+    </ul>
+    <img src="{% static 'img/image.jpg' %}" alt="fasdf">
+    <table width="100%" border="1">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Action</th>
+        </tr>
+        {% for trainee in trainees %}
+        <tr>
+            <td>{{ trainee.0 }}</td>
+            <td>{{ trainee.1 }}</td>
+            <td>
+                <a href="{% url 'update' 1 %}">Update</a>
+                <a href="{% url 'delete' 1 %}">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% endblock %}

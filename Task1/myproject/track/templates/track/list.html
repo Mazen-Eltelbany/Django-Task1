@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% block title %}
+    <title>
+        Track List
+    </title>
+{% endblock %}
+{% block content %}
+    <h1>Track List</h1>
+    <ul>
+        {% for track in tracks %}
+            <li>{{ track }}</li>
+        {% endfor %}
+    </ul>
+    <img src="{% static 'img/image.jpg' %}" alt="sadfas">
+    <table width="100%" border="1">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Action</th>
+        </tr>
+        {% for track in tracks %}
+        <tr>
+            <td>{ { track.0 } }</td>
+            <td>{{ track.1 }}</td>
+            <td>
+                <a href="">Update</a>
+                <a href="">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+{% endblock %}
+    <script src="{% static 'js/action.js' %}"></script>
