@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <title>
+        {% block title %}
+        Insert Trainee
+        {% endblock %}
+    </title>
+
+{% block content %}
+    <h1>Insert Trainee</h1>
+    <form method="POST" action="" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label for="name">Trainee Name:</label>
+        <input type="text" id="name" name="name" required >
+        <label for="Email" name="email">Email</label>
+        <input type="email" id="email" name="email" required>
+        <input type="file" id="image" name="image" required>
+        <button type="submit">Insert</button>
+    </form>
+{% endblock %}
+    <script src="{% static 'js/action.js' %}"></script>

@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <title>
+        {% block title %}
+        Insert Track
+        {% endblock %}
+    </title>
+
+{% block content %}
+    <h1>Insert Track</h1>
+    <form method="POST" action="">
+        {% csrf_token %}
+        <label for="name">Track Name:</label>
+        <input type="text" id="name" name="name" required>
+        <button type="submit">Insert</button>
+    </form>
+{% endblock %}
+    <script src="{% static 'js/action.js' %}"></script>
