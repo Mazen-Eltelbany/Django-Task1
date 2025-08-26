@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block title %}
+        trainee list
+    {% endblock %}
+    {% block content %}
+    <h1>all trainees</h1>
+    <a href="{%url 'insert'%}">insert trainee</a>
+    <ul>
+        {% for trainee in trainees %}
+            <li>{{ trainee.name }}</li>
+        {% endfor %}
+    </ul>
+    <img src="{% static 'img/image.jpg' %}" alt="fasdf">
+    <table width="100%" border="1">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>email</th>
+            <th>status</th>
+            <th>Img</th>
+            <th>trackId</th>
+            <th>Actions</th>
+        </tr>
+        {% for trainee in trainees %}
+        <tr>
+            <td>{{ trainee.id }}</td>
+            <td>{{ trainee.name }}</td>
+            <td>{{ trainee.email }}</td>
+            <td>
+                {% if trainee.status %}
+                    active
+                {% else %}
+                    not active
+                {% endif %}
+</td>
+            <td><img src="{{trainee.image.url}}" alt=""></td>
+            <td>{{ trainee.trackid.id }}</td>
+            <td>
+                <a href="{% url 'insert'   %}">Insert</a>
+                <a href="{% url 'update' trainee.id %}">Update</a>
+                <a href="{% url 'delete' 1 %}">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% endblock %}

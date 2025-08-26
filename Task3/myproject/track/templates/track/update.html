@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+{%block title%}
+    <title>
+        Update Track
+    </title>
+{%endblock%}
+{% block content %}
+    <h1>Update Track</h1>
+    <form method="POST" action="">
+        {% csrf_token %}
+        <label for="name">Track Name:</label>
+        <input type="text" id="name" name="name" required>
+        <button type="submit">Update</button>
+    </form>
+{% endblock %}
+    <script src="{% static 'js/action.js' %}"></script>
